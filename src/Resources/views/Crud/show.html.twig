@@ -1,0 +1,33 @@
+{#
+ # Overidable Blocks
+ - lia_crud_actions
+ - lia_crud_content
+    - lia_crud_content_item
+#}
+
+{% block lia_crud_actions %}
+  <ul>
+    <li>
+      <a href="{{ configurator.getRoute('edit', { 'id': entity.id }) }}">Edit</a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+    <li>
+      <a href="{{ configurator.getRoute('index') }}">
+        Back to the list
+      </a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block lia_crud_content %}
+  <table>
+    <tbody>
+    {% block lia_crud_content_item %}
+      <tr>
+          <th>Id</th>
+          <td>{{ entity.id }}</td>
+      </tr>
+    {% endblock %}
+    </tbody>
+  </table>
+{% endblock %}

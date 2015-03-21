@@ -1,0 +1,21 @@
+{#
+ # Overidable Blocks
+ - lia_crud_actions
+ - lia_crud_content
+#}
+
+{% block lia_crud_actions %}
+  <ul>
+    <li>
+      <a href="{{ configurator.getRoute('index') }}">
+        Back to the list
+      </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+  </ul>
+{% endblock %}
+
+
+{% block lia_crud_content %}
+  {{ form(edit_form) }}
+{% endblock %}

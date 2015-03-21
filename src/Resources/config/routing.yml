@@ -1,0 +1,46 @@
+lia_crud_index:
+    path:   /
+    defaults:  { _controller: LiaKernelCrudBundle:index}
+    requirements:
+        _method:  GET
+
+lia_crud_show:
+    path:   /{id}
+    defaults:  { _controller: LiaKernelCrudBundle:show}
+    requirements:
+        id: \d+
+        _method:  GET
+
+lia_crud_new:
+    path:   /new
+    defaults:  { _controller: LiaKernelCrudBundle:new}
+    requirements:
+        _method:  ['POST', 'GET']
+
+lia_crud_edit:
+    path:   /{id}/edit
+    defaults:  { _controller: LiaKernelCrudBundle:edit}
+    requirements:
+        id: \d+
+        _method:  PUT
+
+lia_crud_edit_form:
+    path:   /{id}/edit
+    defaults:  { _controller: LiaKernelCrudBundle:editForm}
+    requirements:
+        id: \d+
+        _method:  GET
+
+lia_crud_delete:
+    path:   /{id}
+    defaults:  { _controller: LiaKernelCrudBundle:delete}
+    requirements:
+        id: \d+
+        _method:  DELETE
+
+lia_crud_delete_form:
+    path:   /{id}/confirm
+    defaults:  { _controller: LiaKernelCrudBundle:Crud:deleteForm}
+    requirements:
+        id: \d+
+        _method:  DELETE

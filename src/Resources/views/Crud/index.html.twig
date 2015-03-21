@@ -1,0 +1,46 @@
+{#
+ # Overidable Blocks
+ - lia_crud_actions
+ - lia_crud_content
+    - lia_crud_headers
+    - lia_crud_body
+        - lia_crud_row_actions
+        - lia_crud_row_columns
+#}
+
+{% block lia_crud_actions %}
+  <ul>
+    <li>
+      <a href="{{ configurator.getRoute('create') }}">Create a new entry</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block lia_crud_content %}
+  <table>
+  <thead>
+      {% block lia_crud_headers %}{% endblock %}
+  </thead>
+  <tbody>
+  {% block lia_crud_body %}
+    {% for entity in entities %}
+      <tr>
+        <td>
+          {% block lia_crud_row_actions %}
+            <ul>
+              <li>
+                <a href="{{ configurator.getRoute('show', { 'id': entity.id }) }}">show</a>
+              </li>
+              <li>
+                <a href="{{ configurator.getRoute('edit', { 'id': entity.id }) }}">edit</a>
+              </li>
+            </ul>
+          {% endblock %}
+        </td>
+        {% block lia_crud_row_columns %}{% endblock %}
+      </tr>
+    {% endfor %}
+  {% endblock %}
+  </tbody>
+  </table>
+{% endblock %}

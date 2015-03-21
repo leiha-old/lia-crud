@@ -1,0 +1,7 @@
+parameters:
+    lia.factory.crud.class: Lia\CrudBundle\DependencyInjection\CrudService
+
+services:
+    lia.factory.crud:
+        class: %lia.factory.crud.class%
+        arguments: [@service_container]
